@@ -6,6 +6,27 @@ router = routers.DefaultRouter()
 router.register(r'addresses', views.AddressesModelViewSet)
 
 urlpatterns = [
-    path("hello_world/", views.HelloWord.as_view(),name="hello_world"),  # http://localhost:8000/addresses/addresses/
-    path('', include(router.urls)),                                        
+    # Pozdravna stran
+    path('hello/', views.HelloWord.as_view(), name='hello'),
+    
+    # ViewSet URL-ji (REST framework)
+    path('', include(router.urls)),
 ]
+
+
+"""
+REST API ENDPOINTS:
+
+1. OSNOVNI ENDPOINTI
+--------------------
+GET  http://localhost:8000/addresses/hello/
+
+2. ADDRESSESMODELVIEWSET (REST FRAMEWORK)
+------------------------------------------
+GET    http://localhost:8000/addresses/addresses/
+GET    http://localhost:8000/addresses/addresses/1/
+POST   http://localhost:8000/addresses/addresses/
+PUT    http://localhost:8000/addresses/addresses/1/
+PATCH  http://localhost:8000/addresses/addresses/1/
+DELETE http://localhost:8000/addresses/addresses/1/
+"""
